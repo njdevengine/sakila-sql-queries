@@ -1,11 +1,17 @@
+--customers from cities beginning with Q
+
 SELECT first_name, last_name, city FROM address
 JOIN city ON address.city_id = city.city_id
 JOIN customer ON address.address_id = customer.address_id
 WHERE city.city LIKE "Q%";
 
+--actors by how many films they appear in
+
 SELECT first_name, last_name, COUNT(*)
 FROM actor AS a JOIN film_actor AS f ON a.actor_id = f.actor_id
 GROUP BY a.first_name, a.last_name ORDER BY COUNT(*) DESC;
+
+--movies by avg rental duration
 
 SELECT title, avg(rental_duration) AS 'average_rental'
 FROM film
