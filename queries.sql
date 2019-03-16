@@ -1,13 +1,13 @@
 SELECT first_name, last_name, city FROM address
-join city on address.city_id = city.city_id
-join customer on address.address_id = customer.address_id
-where city.city like "Q%";
+JOIN city ON address.city_id = city.city_id
+JOIN customer ON address.address_id = customer.address_id
+WHERE city.city LIKE "Q%";
 
-Select first_name, last_name, count(*)
-from actor as a join film_actor as f on a.actor_id = f.actor_id
-group by a.first_name, a.last_name order by count(*) desc;
+SELECT first_name, last_name, COUNT(*)
+FROM actor AS a JOIN film_actor AS f ON a.actor_id = f.actor_id
+GROUP BY a.first_name, a.last_name ORDER BY COUNT(*) DESC;
 
-select title, avg(rental_duration) as 'average_rental'
-from film
-where 'average_rental' < 6
-group by title;
+SELECT title, avg(rental_duration) AS 'average_rental'
+FROM film
+WHERE 'average_rental' < 6
+GROUP BY title;
