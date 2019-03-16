@@ -17,3 +17,11 @@ SELECT title, avg(rental_duration) AS 'average_rental'
 FROM film
 WHERE 'average_rental' < 6
 GROUP BY title;
+
+--create a view of actors their films and ratings
+
+CREATE view act_film AS (
+SELECT a.first_name, a.last_name, f.title, f.rating
+FROM actor a JOIN film_actor fa ON a.actor_id = fa.actor_id
+JOIN film f ON fa.film_id = f.film_id
+);
